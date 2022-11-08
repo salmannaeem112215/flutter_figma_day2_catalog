@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import '../widget/payment.dart';
 
 class CatalogScreen extends StatefulWidget {
   const CatalogScreen({Key? key}) : super(key: key);
@@ -32,14 +32,9 @@ class _CatalogScreenState extends State<CatalogScreen> {
             width: double.infinity,
             height: _mediaQuerry.size.height * 0.75,
             child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Text('hi')
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Payment(),
               ),
             ),
           ),
