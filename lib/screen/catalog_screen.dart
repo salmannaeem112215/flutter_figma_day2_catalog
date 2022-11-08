@@ -13,10 +13,37 @@ class CatalogScreen extends StatefulWidget {
 class _CatalogScreenState extends State<CatalogScreen> {
   @override
   Widget build(BuildContext context) {
+    final _mediaQuerry = MediaQuery.of(context);
+
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: Center(
-        child: Text('HI'),
+      body: Column(
+        children: [
+          Container(
+            height: _mediaQuerry.size.height * 0.25,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40.0),
+                  topRight: Radius.circular(40)),
+              color: Colors.white,
+            ),
+            width: double.infinity,
+            height: _mediaQuerry.size.height * 0.75,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Text('hi')
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
