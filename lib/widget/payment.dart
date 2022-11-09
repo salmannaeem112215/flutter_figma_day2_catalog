@@ -31,98 +31,51 @@ class _PaymentState extends State<Payment> {
         Row(),
 
         //Payment Details
+
+        Row(
+          children: [
+            Flexible(
+              flex: 1,
+              child: Row(
+                children: [
+                  Radio(
+                    value: "other",
+                    groupValue: gender,
+                    onChanged: (value) {
+                      setState(() {
+                        gender = value.toString();
+                      });
+                    },
+                  ),
+                  Text("Other"),
+                ],
+              ),
+            ),
+            Flexible(
+              child: Row(
+                children: [
+                  Radio(
+                    // title: Text("Others"),
+                    value: "othser",
+                    groupValue: gender,
+                    onChanged: (value) {
+                      setState(() {
+                        gender = value.toString();
+                      });
+                    },
+                  ),
+                  Text("Other"),
+                ],
+              ),
+            ),
+          ],
+        ),
         Text(
           'Payment Details',
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
           ),
-        ),
-        Row(
-          children: [
-            // RadioListTile(
-            //   title: Text("Male"),
-            //   value: "male",
-            //   groupValue: gender,
-            //   onChanged: (value) {
-            //     setState(() {
-            //       gender = value.toString();
-            //     });
-            //   },
-            // ),
-            // RadioListTile(
-            //   title: Text("Female"),
-            //   value: "female",
-            //   groupValue: gender,
-            //   onChanged: (value) {
-            //     setState(() {
-            //       gender = value.toString();
-            //     });
-            //   },
-            // ),
-          ],
-        ),
-
-        Container(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Flexible(
-                    flex: 1,
-                    child: Row(
-                      children: [
-                        Radio(
-                            value: 1,
-                            groupValue: 'null',
-                            onChanged: (index) {}),
-                        Expanded(
-                            child: Text(
-                          'Radio button 1',
-                          maxLines: 2,
-                        ))
-                      ],
-                    ),
-                  ),
-                  Flexible(
-                    flex: 1,
-                    child: Row(
-                      children: [
-                        Radio(
-                            value: 1,
-                            groupValue: 'null',
-                            onChanged: (index) {}),
-                        Text('Radio 2')
-                      ],
-                    ),
-                  ),
-                  Flexible(
-                    flex: 1,
-                    child: Row(
-                      children: [
-                        Radio(
-                            value: 1,
-                            groupValue: 'null',
-                            onChanged: (index) {}),
-                        Text('Test')
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-
-        RadioListTile(
-          title: Text("Other"),
-          value: "other",
-          groupValue: gender,
-          onChanged: (value) {
-            setState(() {
-              gender = value.toString();
-            });
-          },
         ),
       ],
     );
