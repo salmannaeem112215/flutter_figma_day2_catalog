@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:linear_step_indicator/linear_step_indicator.dart';
-import 'package:step_indicator/step_indicator.dart';
-import 'package:steps_indicator/steps_indicator.dart';
+import 'package:flutter_figma_day2/widget/steps_indicator.dart';
 
 import './payment_details.dart';
 import './payment_method.dart';
@@ -20,6 +18,12 @@ class _PaymentState extends State<Payment> {
 
   int _index = 1;
 
+  var hi = [
+    "Shippment",
+    "Billing",
+    "Confirmation",
+  ];
+
   void _setPaymentMethod(value) {
     setState(() {
       _paymentMethod = value.toString();
@@ -34,72 +38,7 @@ class _PaymentState extends State<Payment> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Pagination
-        SizedBox(
-          height: 200,
-          width: 300,
-          child: StepIndicatorPageView(
-            spacing: 50,
-            steps: 3,
-            indicatorPosition: IndicatorPosition.top,
-            labels: List<String>.generate(3, (index) => "Step ${index + 1}"),
-            controller: PageController(),
-            complete: () {
-              //typically, you'd want to put logic that returns true when all the steps
-              //are completed here
-              return Future.value(true);
-            },
-            children: List<Widget>.generate(
-              3,
-              (index) => Container(
-                color: Color(0xffffffff),
-                child: Center(
-                  child: Text(
-                    "Page ${index + 1}",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-
-        SizedBox(
-          height: 200,
-          child: LinearStepIndicator(
-            steps: 3,
-            controller: PageController(),
-            labels: List<String>.generate(3, (index) => "Step ${index + 1}"),
-            complete: () {
-              //typically, you'd want to put logic that returns true when all the steps
-              //are completed here
-              return Future.value(true);
-            },
-          ),
-        ),
-
-        SizedBox(
-          height: 200,
-          child: StepIndicator(
-            currentStep: 2,
-            count: 4,
-            activeIndicatorColor: Colors.blue,
-            activeLineColor: Colors.blue,
-            enableStepTitle: true,
-            indicatorBorderWidth: 2,
-            stepTitles: ["Step 1", "Step 2", "Step 3", "Step 4"],
-            stepTitleStyle: TextStyle(
-              color: Colors.black,
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 200,
-          child: StepsIndicator(selectedStep: 1, nbSteps: 4),
-        ),
-
+        StepIndicator(),
         PaymentMethod(
           paymentMethod: _paymentMethod,
           setPaymentMethod: _setPaymentMethod,
