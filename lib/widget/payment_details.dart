@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 class PaymentDetails extends StatelessWidget {
-  const PaymentDetails({Key? key}) : super(key: key);
-
+  PaymentDetails({Key? key, required this.paymentMethod}) : super(key: key);
+  String paymentMethod = '';
   @override
   Widget build(BuildContext context) {
+    print(paymentMethod.isEmpty);
+    print(paymentMethod == '');
+    print('hi');
+    // (paymentMethod!.length == 0) ? print('is Empty') : print('Not EMptyy');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -15,6 +19,16 @@ class PaymentDetails extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        paymentMethod.isEmpty
+            ? Center(
+                child: Column(
+                  children: [
+                    Text('Please Select Payment Method'),
+                    LinearProgressIndicator(),
+                  ],
+                ),
+              )
+            : Text('hi'),
       ],
     );
   }

@@ -10,7 +10,7 @@ class Payment extends StatefulWidget {
 }
 
 class _PaymentState extends State<Payment> {
-  String _paymentMethod = 'card';
+  String _paymentMethod = '';
 
   void _setPaymentMethod(value) {
     setState(() {
@@ -34,7 +34,7 @@ class _PaymentState extends State<Payment> {
           setPaymentMethod: _setPaymentMethod,
         ),
 
-        PaymentDetails(),
+        PaymentDetails(paymentMethod: _paymentMethod),
       ],
     );
   }

@@ -27,13 +27,13 @@ class PaymentMethod extends StatelessWidget {
               child: Row(
                 children: [
                   Radio(
-                    value: "other",
+                    value: "card",
                     groupValue: paymentMethod,
                     onChanged: (value) {
                       setPaymentMethod(value);
                     },
                   ),
-                  Text("Other"),
+                  Text("Card"),
                 ],
               ),
             ),
@@ -41,13 +41,13 @@ class PaymentMethod extends StatelessWidget {
               child: Row(
                 children: [
                   Radio(
-                    value: "othser",
+                    value: "paypal",
                     groupValue: paymentMethod,
                     onChanged: (value) {
                       setPaymentMethod(value);
                     },
                   ),
-                  Text("Other"),
+                  Text("paypal"),
                 ],
               ),
             ),
