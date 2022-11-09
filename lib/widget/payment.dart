@@ -11,6 +11,7 @@ class Payment extends StatefulWidget {
 
 class _PaymentState extends State<Payment> {
   String _paymentMethod = '';
+  double price = 1800;
 
   void _setPaymentMethod(value) {
     setState(() {
@@ -35,6 +36,30 @@ class _PaymentState extends State<Payment> {
         ),
 
         PaymentDetails(paymentMethod: _paymentMethod),
+
+        SizedBox(
+          height: 40,
+        ),
+
+        Text(
+            'By clicking on “Confirm Payment” I agree to companies term of services.'),
+
+        Container(
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Text(
+              "Confirm Payment: RS " + price.toStringAsFixed(0),
+            ),
+          ),
+        ),
+
+        Center(
+          child: TextButton(
+            onPressed: () {},
+            child: Text('Back'),
+          ),
+        )
       ],
     );
   }

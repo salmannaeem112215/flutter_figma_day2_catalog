@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class PaymentDetails extends StatelessWidget {
   PaymentDetails({Key? key, required this.paymentMethod}) : super(key: key);
   String paymentMethod = '';
   @override
   Widget build(BuildContext context) {
-    print(paymentMethod.isEmpty);
-    print(paymentMethod == '');
-    print('hi');
     // (paymentMethod!.length == 0) ? print('is Empty') : print('Not EMptyy');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,11 +22,51 @@ class PaymentDetails extends StatelessWidget {
                 child: Column(
                   children: [
                     Text('Please Select Payment Method'),
-                    LinearProgressIndicator(),
+                    CircularProgressIndicator(),
                   ],
                 ),
               )
-            : Text('hi'),
+            : Form(
+                child: Column(
+                children: [
+                  TextFormField(
+                    decoration:
+                        InputDecoration(labelText: "Enter Name On Card"),
+                    keyboardType: TextInputType.name,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: "Card  Number"),
+                    keyboardType: TextInputType.number,
+                  ),
+                  Row(
+                    children: [
+                      Flexible(
+                        flex: 6,
+                        fit: FlexFit.tight,
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                          child: TextFormField(
+                            decoration:
+                                InputDecoration(labelText: "Expiration"),
+                            keyboardType: TextInputType.datetime,
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        flex: 4,
+                        fit: FlexFit.tight,
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                          child: TextFormField(
+                            decoration: InputDecoration(labelText: "CVV"),
+                            keyboardType: TextInputType.number,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ))
       ],
     );
   }

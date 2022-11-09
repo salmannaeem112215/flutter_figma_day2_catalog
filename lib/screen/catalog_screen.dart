@@ -17,14 +17,14 @@ class _CatalogScreenState extends State<CatalogScreen> {
         child: Column(
           children: [
             Flexible(
-                flex: 2,
+                flex: 3,
                 fit: FlexFit.tight,
                 child: Container(
                   width: double.infinity,
                   child: Text('hi'),
                 )),
             Flexible(
-              flex: 8,
+              flex: 9,
               fit: FlexFit.tight,
               child: Container(
                 decoration: BoxDecoration(
