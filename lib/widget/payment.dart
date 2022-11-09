@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_figma_day2/widget/payment_details.dart';
+import './payment_method.dart';
 
 class Payment extends StatefulWidget {
   const Payment({Key? key}) : super(key: key);
@@ -8,7 +10,14 @@ class Payment extends StatefulWidget {
 }
 
 class _PaymentState extends State<Payment> {
-  String? gender;
+  String _paymentMethod = 'card';
+
+  void _setPaymentMethod(value) {
+    setState(() {
+      _paymentMethod = value.toString();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,63 +29,12 @@ class _PaymentState extends State<Payment> {
           height: 40,
         ),
 
-        // Payment Methods
-        Text(
-          'Payment Methods',
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          ),
+        PaymentMethod(
+          paymentMethod: _paymentMethod,
+          setPaymentMethod: _setPaymentMethod,
         ),
-        Row(),
 
-        //Payment Details
-
-        Row(
-          children: [
-            Flexible(
-              flex: 1,
-              child: Row(
-                children: [
-                  Radio(
-                    value: "other",
-                    groupValue: gender,
-                    onChanged: (value) {
-                      setState(() {
-                        gender = value.toString();
-                      });
-                    },
-                  ),
-                  Text("Other"),
-                ],
-              ),
-            ),
-            Flexible(
-              child: Row(
-                children: [
-                  Radio(
-                    // title: Text("Others"),
-                    value: "othser",
-                    groupValue: gender,
-                    onChanged: (value) {
-                      setState(() {
-                        gender = value.toString();
-                      });
-                    },
-                  ),
-                  Text("Other"),
-                ],
-              ),
-            ),
-          ],
-        ),
-        Text(
-          'Payment Details',
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        PaymentDetails(),
       ],
     );
   }
