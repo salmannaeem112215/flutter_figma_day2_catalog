@@ -33,7 +33,11 @@ class PaymentMethod extends StatelessWidget {
                       setPaymentMethod(value);
                     },
                   ),
-                  Text("Card"),
+                  Image.asset(
+                    'assets/images/credit-cards.png',
+                    height: 38,
+                    // width: ,
+                  ),
                 ],
               ),
             ),
@@ -47,7 +51,11 @@ class PaymentMethod extends StatelessWidget {
                       setPaymentMethod(value);
                     },
                   ),
-                  Text("paypal"),
+                  Image.asset(
+                    'assets/images/paypal01.png',
+                    height: 38,
+                    width: 95,
+                  ),
                 ],
               ),
             ),

@@ -21,8 +21,17 @@ class PaymentDetails extends StatelessWidget {
             ? Center(
                 child: Column(
                   children: [
-                    Text('Please Select Payment Method'),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Text('Please Select Payment Method !'),
+                    SizedBox(
+                      height: 30,
+                    ),
                     CircularProgressIndicator(),
+                    SizedBox(
+                      height: 30,
+                    ),
                   ],
                 ),
               )
