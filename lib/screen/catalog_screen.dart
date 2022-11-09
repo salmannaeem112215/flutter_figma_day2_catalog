@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widget/paymen_info.dart';
 import '../widget/payment.dart';
 
 class CatalogScreen extends StatefulWidget {
@@ -9,6 +10,9 @@ class CatalogScreen extends StatefulWidget {
 }
 
 class _CatalogScreenState extends State<CatalogScreen> {
+  String _name = 'Al-Fajito special Pizza';
+  String _size = 'Large';
+  double _price = 1800;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +24,13 @@ class _CatalogScreenState extends State<CatalogScreen> {
                 flex: 3,
                 fit: FlexFit.tight,
                 child: Container(
+                  padding: EdgeInsets.all(10),
                   width: double.infinity,
-                  child: Text('hi'),
+                  child: PaymentInfo(
+                    name: _name,
+                    price: _price,
+                    size: _size,
+                  ),
                 )),
             Flexible(
               flex: 9,
